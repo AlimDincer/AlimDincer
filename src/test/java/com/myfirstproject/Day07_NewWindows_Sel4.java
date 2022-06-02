@@ -22,7 +22,7 @@ public class Day07_NewWindows_Sel4 extends TestBase {
 //        Switch between windows
 //        Switch to amazon
         Thread.sleep(5000);
-        driver.switchTo().window(amazonWindowHandle);
+
         System.out.println("AMAZON : " +driver.getTitle());
 
 //        Switch to google

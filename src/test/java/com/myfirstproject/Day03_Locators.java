@@ -28,25 +28,33 @@ public class Day03_Locators {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 //        user goes to http://a.testaddressbook.com/sign_in
+
         driver.get("http://a.testaddressbook.com/sign_in");
 //        Locate the elements of email textbox, password textbox, and signin button
+
 //        Email
         driver.findElement(By.id("session_email")).sendKeys("testtechproed@gmail.com");
+
 //        Password
         driver.findElement(By.id("session_password")).sendKeys("Test1234!");
+
 //        click on sign in button
 //        driver.findElement(By.name("commit")).click();
 //        ALTERNATIVELY we can first locate the element then click
         WebElement signInButton = driver.findElement(By.name("commit"));
         signInButton.click();
+
 //        Then verify that the expected user id testtechproed@gmail.com
 //        (USE getText() method to get the text from the page)
         WebElement idElement = driver.findElement(By.className("navbar-text"));
+
 //        System.out.println(idElement.getText());//testtechproed@gmail.com
         String idElementText=idElement.getText();
         Assert.assertEquals("testtechproed@gmail.com",idElementText);
+
 //        ALTERNATIVELY. But this below code is not so clear. So we should write anderstable codes.
 //        Assert.assertEquals("testtechproed@gmail.com",driver.findElement(By.className("navbar-text")).getText());
+
 //        Verify the Addresses and Sign Out texts are displayed
 //        Addresses is a link. So I can use linkText or partialLinkText
         WebElement addresses = driver.findElement(By.linkText("Addresses"));
