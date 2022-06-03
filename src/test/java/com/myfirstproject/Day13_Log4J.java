@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.openqa.selenium.By;
-public class Day13_Log4J extends TestBase {
+public class  Day13_Log4J extends TestBase {
     private static Logger logger = LogManager.getLogger(Day13_Log4J.class.getName());
     @Test
     public void log4JTest(){
@@ -17,4 +17,3 @@ public class Day13_Log4J extends TestBase {
         logger.debug("Debug Log");
     }
 }
- 
