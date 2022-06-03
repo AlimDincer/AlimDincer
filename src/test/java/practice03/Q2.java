@@ -1,14 +1,26 @@
 package practice03;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Q2 extends com.myfirstproject.utilities.TestBase {
+import javax.swing.*;
+import java.time.Duration;
 
+public class Q2  {
+  WebDriver driver;
     @Test
-    public void name() throws InterruptedException {
+    public void name2() throws InterruptedException {
+
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
 //      1. Launch browser
 //
@@ -33,7 +45,7 @@ public class Q2 extends com.myfirstproject.utilities.TestBase {
 
         // Navigate to URL 'http://automationexercise.com'
         driver.get("http://automationexercise.com");
-        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         //     3. Verify that the home page is visible successfully
         WebElement homePageIsVisible = driver.findElement(By.xpath("(//a[@href='/'])[2]"));
@@ -61,14 +73,20 @@ public class Q2 extends com.myfirstproject.utilities.TestBase {
         //6.Enter correct email address and password
         WebElement emailElement= driver.findElement(By.xpath("(//input[@type='email'])[1]"));
         WebElement passwordElement= driver.findElement(By.xpath("//input[@type='password']"));
+       emailElement.sendKeys("demo24@gmail.com");
+       passwordElement.sendKeys("3135153Ad");
+
         Thread.sleep(5000);
         // 7. Click 'login' button
         driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
         Thread.sleep(5000);
 
-         //       8. Verify that 'Logged in as username' is visible
-        WebElement loggedInAsUsernameIsVisible = driver.findElement(By.xpath("//div[@class='login-form']//h2"));
-        Assert.assertTrue(loggedInAsUsernameIsVisible.isDisplayed());
+
+
+//         //       8. Verify that 'Logged in as username' is visible
+
+       WebElement loggedInAsUsernameIsVisible = driver.findElement(By.xpath("//i[@class='fa fa-home']"));
+       Assert.assertTrue(loggedInAsUsernameIsVisible.isDisplayed());
 
 
 
