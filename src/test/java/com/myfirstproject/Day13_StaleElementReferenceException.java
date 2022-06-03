@@ -36,7 +36,7 @@ public class Day13_StaleElementReferenceException {
         driver.navigate().back();
         home.click();//StaleElementReferenceException
     }
-    @Test
+    @Testgit
     public void staleElementReferenceExceptionSolution(){
         driver.get("https://www.carettahotel.com/");
         WebElement home = driver.findElement(By.linkText("Home"));
